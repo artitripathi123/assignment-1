@@ -1,12 +1,18 @@
-import java.util.Scanner;
-
+ import java.util.*;
 public class perimeter {
-    public static void main(String[] var0) {
-      Scanner var1 = new Scanner(System.in);
-      double var2 = var1.nextDouble();
-      double var3= var1.nextDouble();
-      double perimeter=2*(var2+var3);
-      System.out.println(perimeter);
+    public static int calculateRounds(int a,int b,int c){
+        int Rounds=(a+b+c);
+    return Rounds ;
+    }
     
-}
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int a=sc.nextInt();
+        int b=sc.nextInt();
+        int c=sc.nextInt();
+
+        int Rounds=calculateRounds(a, b, c);
+        System.out.println(Rounds);
+    }
 }

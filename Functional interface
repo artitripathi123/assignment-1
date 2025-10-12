@@ -1,0 +1,703 @@
+// interface SmartDevice {
+//     void turnOn();
+//     void turnOff();
+// }
+
+// class Light implements SmartDevice {
+//     @Override
+//     public void turnOn() {
+//         System.out.println("Light is turned ON.");
+//     }
+
+//     @Override
+//     public void turnOff() {
+//         System.out.println("Light is turned OFF.");
+//     }
+// }
+
+// class AC implements SmartDevice {
+//     @Override
+//     public void turnOn() {
+//         System.out.println("AC is turned ON.");
+//     }
+
+//     @Override
+//     public void turnOff() {
+//         System.out.println("AC is turned OFF.");
+//     }
+// }
+
+// class TV implements SmartDevice {
+//     @Override
+//     public void turnOn() {
+//         System.out.println("TV is turned ON.");
+//     }
+
+//     @Override
+//     public void turnOff() {
+//         System.out.println("TV is turned OFF.");
+//     }
+// }
+
+// public class SmartHomeController {
+//     public static void main(String[] args) {
+//         SmartDevice light = new Light();
+//         SmartDevice ac = new AC();
+//         SmartDevice tv = new TV();
+
+//         light.turnOn();
+//         ac.turnOn();
+//         tv.turnOn();
+
+//         light.turnOff();
+//         ac.turnOff();
+//         tv.turnOff();
+//     }
+// }
+
+
+
+// interface Vehicle {
+//     void rent();
+//     void returnVehicle();
+// }
+
+// class Car implements Vehicle {
+//     @Override
+//     public void rent() {
+//         System.out.println("Car has been rented.");
+//     }
+
+//     @Override
+//     public void returnVehicle() {
+//         System.out.println("Car has been returned.");
+//     }
+// }
+
+// class Bike implements Vehicle {
+//     @Override
+//     public void rent() {
+//         System.out.println("Bike has been rented.");
+//     }
+
+//     @Override
+//     public void returnVehicle() {
+//         System.out.println("Bike has been returned.");
+//     }
+// }
+// class Bus implements Vehicle {
+//     @Override
+//     public void rent() {
+//         System.out.println("Bus has been rented.");
+//     }
+
+//     @Override
+//     public void returnVehicle() {
+//         System.out.println("Bus has been returned.");
+//     }
+// }
+
+// public class VehicleRentalSystem {
+//     public static void main(String[] args) {
+//         Vehicle car = new Car();
+//         Vehicle bike = new Bike();
+//         Vehicle bus = new Bus();
+
+//         car.rent();
+//         bike.rent();
+//         bus.rent();
+
+//         car.returnVehicle();
+//         bike.returnVehicle();
+//         bus.returnVehicle();
+//     }
+// }
+
+
+
+
+
+
+
+// interface DigitalPayment {
+//     void pay(double amount);
+// }
+// class UPI implements DigitalPayment {
+//     @Override
+//     public void pay(double amount) {
+//         System.out.println("Paid ₹" + amount + " via UPI.");
+//     }
+// }
+// class CreditCard implements DigitalPayment {
+//     @Override
+//     public void pay(double amount) {
+//         System.out.println("Paid ₹" + amount + " using Credit Card.");
+//     }
+// }
+// class Wallet implements DigitalPayment {
+//     @Override
+//     public void pay(double amount) {
+//         System.out.println("Paid ₹" + amount + " from Wallet.");
+//     }
+// }
+
+// public class PaymentGateway {
+//     public static void main(String[] args) {
+//         DigitalPayment upi = new UPI();
+//         DigitalPayment creditCard = new CreditCard();
+//         DigitalPayment wallet = new Wallet();
+
+//         upi.pay(500.00);
+//         creditCard.pay(1500.50);
+//         wallet.pay(300.75);
+//     }
+// }
+
+
+
+
+
+
+// import java.util.function.Predicate;
+// public class TemperatureAlertSystem {
+
+//     public static void main(String[] args) {
+        
+//         double threshold = 37.5;
+
+//         Predicate<Double> isHighTemperature = temp -> temp > threshold;
+
+//         double[] temperatures = {36.5, 38.2, 37.0, 39.5, 35.8};
+
+//         for (double temp : temperatures) {
+//             if (isHighTemperature.test(temp)) {
+//                 System.out.println("ALERT: High temperature detected - " + temp + "°C");
+//             } else {
+//                 System.out.println("Temperature normal - " + temp + "°C");
+//             }
+//         }
+//     }
+// }
+
+
+
+
+
+// import java.util.function.Function;
+// public class StringLengthChecker {
+//     public static void main(String[] args) {
+//         int charLimit = 100;
+
+//         Function<String, Integer> getLength = str -> str.length();
+
+//         String message = "This is a short message.";
+//         String longMessage = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+//                            + "Pellentesque euismod, nisi eu consectetur cursus, nunc nisl.";
+
+        
+//         checkMessage(message, charLimit, getLength);
+//         checkMessage(longMessage, charLimit, getLength);
+//     }
+
+//     public static void checkMessage(String msg, int limit, Function<String, Integer> func) {
+//         int length = func.apply(msg);
+//         System.out.println("\nMessage: " + msg);
+//         System.out.println("Length: " + length);
+
+//         if (length > limit) {
+//             System.out.println(" ALERT: Message exceeds the character limit of " + limit + "!");
+//         } else {
+//             System.out.println(" Message is within the character limit.");
+//         }
+//     }
+// }
+
+
+
+// public class BackgroundJobExecutor {
+
+//     public static void main(String[] args) {
+//         System.out.println("Main thread started.");
+
+//         Runnable backgroundTask = () -> {
+//             System.out.println("Background job started...");
+
+//             try {
+               
+//                 Thread.sleep(3000);
+//             } catch (InterruptedException e) {
+//                 System.out.println("Background job was interrupted.");
+//             }
+
+//             System.out.println("Background job completed.");
+//         };
+
+        
+//         Thread backgroundThread = new Thread(backgroundTask);
+//         backgroundThread.start();
+
+//         System.out.println("Main thread continues to run...");
+
+//         try {
+           
+//             backgroundThread.join();
+//         } catch (InterruptedException e) {
+//             System.out.println("Main thread was interrupted while waiting.");
+//         }
+
+//         System.out.println("Main thread finished.");
+//     }
+// }
+
+
+
+
+
+
+// interface SecurityUtils {
+//     static boolean isStrongPassword(String password) {
+        
+//         if (password == null || password.length() < 8) {
+//             return false;
+//         }
+
+//         boolean hasUpper = false;
+//         boolean hasLower = false;
+//         boolean hasDigit = false;
+//         boolean hasSpecial = false;
+
+//         for (char ch : password.toCharArray()) {
+//             if (Character.isUpperCase(ch)) hasUpper = true;
+//             else if (Character.isLowerCase(ch)) hasLower = true;
+//             else if (Character.isDigit(ch)) hasDigit = true;
+//             else if ("!@#$%^&*()-_=+[]{};:'\",.<>?/\\|".indexOf(ch) >= 0) hasSpecial = true;
+//         }
+
+//         return hasUpper && hasLower && hasDigit && hasSpecial;
+//     }
+// }
+
+// public class InsurancePortal {
+//     public static void main(String[] args) {
+//         String[] testPasswords = {
+//             "Password123",        
+//             "Pass@123",           
+//             "weak",               
+//             "PASSWORD@123",       
+//             "pass@123",           
+//             "Strong#Pass1"       
+//         };
+
+//         for (String pwd : testPasswords) {
+//             System.out.println("Password: " + pwd);
+//             if (SecurityUtils.isStrongPassword(pwd)) {
+//                 System.out.println(" Strong password.\n");
+//             } else {
+//                 System.out.println(" Weak password.\n");
+//             }
+//         }
+//     }
+// }
+
+
+
+
+
+
+
+// interface UnitConverter {
+//     static double kmToMiles(double km) {
+//         return km * 0.621371;
+//     }
+
+//     static double kgToPounds(double kg) {
+//         return kg * 2.20462;
+//     }
+
+//     static double milesToKm(double miles) {
+//         return miles / 0.621371;
+//     }
+
+//     static double poundsToKg(double pounds) {
+//         return pounds / 2.20462;
+//     }
+// }
+
+// public class LogisticsTool {
+//     public static void main(String[] args) {
+//         double km = 100;
+//         double kg = 50;
+
+//         double miles = UnitConverter.kmToMiles(km);
+//         double pounds = UnitConverter.kgToPounds(kg);
+
+//         System.out.println(km + " km = " + String.format("%.2f", miles) + " miles");
+//         System.out.println(kg + " kg = " + String.format("%.2f", pounds) + " pounds");
+
+//         System.out.println(miles + " miles = " + String.format("%.2f", UnitConverter.milesToKm(miles)) + " km");
+//         System.out.println(pounds + " pounds = " + String.format("%.2f", UnitConverter.poundsToKg(pounds)) + " kg");
+//     }
+// }
+
+
+
+
+
+// import java.time.LocalDate;
+// import java.time.format.DateTimeFormatter;
+
+// interface DateFormatUtil {
+
+//     static String formatDate(LocalDate date, String pattern) {
+//         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
+//         return date.format(formatter);
+//     }
+// }
+
+// public class InvoiceGenerator {
+//     public static void main(String[] args) {
+//         LocalDate today = LocalDate.now();
+
+//         String format1 = "dd-MM-yyyy";
+//         String format2 = "yyyy/MM/dd";
+//         String format3 = "MMM dd, yyyy";
+
+//         System.out.println("Invoice Date Formats:");
+//         System.out.println("Format 1: " + DateFormatUtil.formatDate(today, format1));
+//         System.out.println("Format 2: " + DateFormatUtil.formatDate(today, format2));
+//         System.out.println("Format 3: " + DateFormatUtil.formatDate(today, format3));
+//     }
+// }
+
+
+
+
+
+// interface PaymentProcessor {
+//     void pay(double amount);
+
+//     default void refund(double amount) {
+//         System.out.println("Refund of ₹" + amount + " is not supported by this provider.");
+//     }
+// }
+
+// class LegacyPayProvider implements PaymentProcessor {
+//     @Override
+//     public void pay(double amount) {
+//         System.out.println("Paid ₹" + amount + " via LegacyPay.");
+//     }
+
+// class StripeProvider implements PaymentProcessor {
+//     @Override
+//     public void pay(double amount) {
+//         System.out.println("Paid ₹" + amount + " via Stripe.");
+//     }
+
+//     @Override
+//     public void refund(double amount) {
+//         System.out.println("Refunded ₹" + amount + " via Stripe.");
+//     }
+// }
+
+// public class PaymentGatewayApp {
+//     public static void main(String[] args) {
+//         PaymentProcessor legacyPay = new LegacyPayProvider();
+//         PaymentProcessor stripe = new StripeProvider();
+
+//         System.out.println("--- LegacyPay Transaction ---");
+//         legacyPay.pay(1000);
+//         legacyPay.refund(500);  
+
+//         System.out.println("\n--- Stripe Transaction ---");
+//         stripe.pay(2000);
+//         stripe.refund(2000);    
+//     }
+// }
+
+
+
+
+
+
+// interface DataExporter {
+//     void export();  
+
+//     default void exportToJSON() {
+//         System.out.println("Default JSON export not implemented for this exporter.");
+//     }
+// }
+
+// class CSVExporter implements DataExporter {
+//     @Override
+//     public void export() {
+//         System.out.println("Exporting data as CSV...");
+//     }
+
+// }
+
+// class PDFExporter implements DataExporter {
+//     @Override
+//     public void export() {
+//         System.out.println("Exporting data as PDF...");
+//     }
+
+// }
+
+// class JSONExporter implements DataExporter {
+//     @Override
+//     public void export() {
+//         System.out.println("Exporting data as JSON...");
+//     }
+
+//     @Override
+//     public void exportToJSON() {
+//         System.out.println("Exporting data as JSON using exportToJSON() method...");
+//     }
+// }
+
+// public class ReportingModule {
+//     public static void main(String[] args) {
+//         DataExporter csv = new CSVExporter();
+//         DataExporter pdf = new PDFExporter();
+//         DataExporter json = new JSONExporter();
+
+//         csv.export();
+//         csv.exportToJSON();  
+
+//         pdf.export();
+//         pdf.exportToJSON();  
+//         json.export();
+//         json.exportToJSON(); 
+//     }
+// }
+
+
+
+
+
+
+
+// interface Vehicle {
+//     void displaySpeed();
+
+//        default void displayBattery() {
+        
+//     }
+
+    
+//     default void displayDashboard() {
+//         displaySpeed();
+//         displayBattery();
+//     }
+// }
+
+
+// class Car implements Vehicle {
+//     private int speed;
+
+//     public Car(int speed) {
+//         this.speed = speed;
+//     }
+
+//     @Override
+//     public void displaySpeed() {
+//         System.out.println("Car speed: " + speed + " km/h");
+//     }
+// }
+
+// class ElectricVehicle implements Vehicle {
+//     private int speed;
+//     private int batteryPercentage;
+
+//     public ElectricVehicle(int speed, int batteryPercentage) {
+//         this.speed = speed;
+//         this.batteryPercentage = batteryPercentage;
+//     }
+
+//     @Override
+//     public void displaySpeed() {
+//         System.out.println("Electric vehicle speed: " + speed + " km/h");
+//     }
+
+//     @Override
+//     public void displayBattery() {
+//         System.out.println("Battery percentage: " + batteryPercentage + "%");
+//     }
+// }
+
+
+// public class SmartVehicleDashboard {
+//     public static void main(String[] args) {
+//         Vehicle regularCar = new Car(80);
+//         Vehicle electricCar = new ElectricVehicle(60, 75);
+
+//         System.out.println("Regular Car Dashboard:");
+//         regularCar.displayDashboard();
+
+//         System.out.println("\nElectric Vehicle Dashboard:");
+//         electricCar.displayDashboard();
+//     }
+// }
+
+
+
+
+
+
+
+
+
+// import java.io.*;
+// interface BackupSerializable {
+    
+
+
+// class UserData implements BackupSerializable, Serializable {
+//     private String username;
+//     private int age;
+
+//     public UserData(String username, int age) {
+//         this.username = username;
+//         this.age = age;
+//     }
+
+//     @Override
+//     public String toString() {
+//         return "UserData{username='" + username + "', age=" + age + "}";
+//     }
+// }
+
+// class TempData {
+//     private String tempInfo;
+
+//     public TempData(String tempInfo) {
+//         this.tempInfo = tempInfo;
+//     }
+// }
+
+
+// class BackupProcessor {
+//     public void backup(Object obj, String fileName) {
+//         if (obj instanceof BackupSerializable && obj instanceof Serializable) {
+//             try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))) {
+//                 oos.writeObject(obj);
+//                 System.out.println("Backup successful for " + obj.getClass().getSimpleName());
+//             } catch (IOException e) {
+//                 System.err.println("Backup failed: " + e.getMessage());
+//             }
+//         } else {
+//             System.out.println("Object of class " + obj.getClass().getSimpleName(  " is not eligible for backup.");
+//         }
+//     }
+// }
+
+
+// public class BackupApp {
+//     public static void main(String[] args) {
+//         UserData user = new UserData("Alice", 30);
+//         TempData temp = new TempData("Temporary data");
+
+//         BackupProcessor backupProcessor = new BackupProcessor();
+
+//         backupProcessor.backup(user, "user_backup.ser");  
+//         backupProcessor.backup(temp, "temp_backup.ser");  
+//     }
+// }
+
+
+
+
+
+
+
+// class Vehicle implements Cloneable {
+//     private String model;
+//     private int speed;
+
+//     public Vehicle(String model, int speed) {
+//         this.model = model;
+//         this.speed = speed;
+//     }
+
+//     public String getModel() { return model; }
+//     public int getSpeed() { return speed; }
+//     public void setModel(String model) { this.model = model; }
+//     public void setSpeed(int speed) { this.speed = speed; }
+
+//     @Override
+//     public Vehicle clone() {
+//         try {
+//             return (Vehicle) super.clone();  
+//         } catch (CloneNotSupportedException e) {
+//             throw new AssertionError("Cloning not supported");
+//         }
+//     }
+
+//     @Override
+//     public String toString() {
+//         return "Vehicle{model='" + model + "', speed=" + speed + "}";
+//     }
+// }
+
+// public class PrototypeDemo {
+//     public static void main(String[] args) {
+//         Vehicle original = new Vehicle("Tesla Model S", 250);
+//         Vehicle clone = original.clone();
+
+//         System.out.println("Original: " + original);
+//         System.out.println("Clone: " + clone);
+
+//         clone.setSpeed(200);
+//         System.out.println("\nAfter modifying clone's speed:");
+//         System.out.println("Original: " + original);
+//         System.out.println("Clone: " + clone);
+//     }
+// }
+
+
+
+
+
+
+
+
+// public interface SensitiveData {
+// }
+
+// class UserCredentials implements SensitiveData {
+//     private String username;
+//     private String password;  
+//     public UserCredentials(String username, String password) {
+//         this.username = username;
+//         this.password = password;
+//     }
+
+//     @Override
+//     public String toString() {
+//         return "UserCredentials{username='" + username + "', password='" + password + "'}";
+//     }
+
+// class EncryptionUtil {
+//     public static String encryptIfSensitive(Object obj) {
+//         if (obj instanceof SensitiveData) {
+            
+//             return new StringBuilder(obj.toString()).reverse().toString();
+//         } else {
+            
+//             return obj.toString();
+//         }
+//     }
+// }
+
+// public class SensitiveDataTaggingDemo {
+//     public static void main(String[] args) {
+//         UserCredentials creds = new UserCredentials("alice", "secret123");
+//         String encrypted = EncryptionUtil.encryptIfSensitive(creds);
+
+//         System.out.println("Original: " + creds);
+//         System.out.println("Encrypted: " + encrypted);
+
+//         String normalData = "Public info";
+//         System.out.println("Normal Data: " + EncryptionUtil.encryptIfSensitive(normalData));
+//     }
+// }
